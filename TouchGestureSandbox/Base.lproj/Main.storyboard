@@ -18,9 +18,11 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JAz-yQ-OWR">
                                 <rect key="frame" x="10" y="44" width="67" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
                                 <state key="normal" title="Add Brick"/>
                                 <connections>
                                     <action selector="addBrickTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wDq-P7-L7U"/>
+                                    <outletCollection property="gestureRecognizers" destination="bni-vt-kjH" appends="YES" id="jsk-Pc-qpX"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GVJ-n3-Pwk" userLabel="DeleteView">
@@ -41,15 +43,30 @@
                                     <constraint firstItem="qDu-WQ-8EG" firstAttribute="centerY" secondItem="GVJ-n3-Pwk" secondAttribute="centerY" id="i9B-aL-98J"/>
                                 </constraints>
                             </view>
+                            <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6do-HO-dBZ">
+                                <rect key="frame" x="0.0" y="340" width="414" height="216"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="216" id="MNo-Rz-SRf"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="uRP-2m-A9l"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="ib4-NY-9ZD"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="6do-HO-dBZ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="FOq-93-B7K"/>
+                            <constraint firstItem="6do-HO-dBZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="exG-SN-onM"/>
+                            <constraint firstItem="6do-HO-dBZ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="nxb-Jx-mwm"/>
                             <constraint firstItem="GVJ-n3-Pwk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="oPK-n1-SaL"/>
                             <constraint firstItem="GVJ-n3-Pwk" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="r0V-MZ-fLe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="colorPicker" destination="6do-HO-dBZ" id="cBf-fd-6N4"/>
                         <outlet property="deleteView" destination="GVJ-n3-Pwk" id="EbK-x1-gJX"/>
                         <outlet property="recognizer" destination="TYH-bm-MQM" id="cT8-d6-wPt"/>
                     </connections>
@@ -61,6 +78,11 @@
                         <outlet property="delegate" destination="BYZ-38-t0r" id="OTK-59-hbu"/>
                     </connections>
                 </panGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="bni-vt-kjH">
+                    <connections>
+                        <action selector="addBrickLongPressed:" destination="BYZ-38-t0r" id="JUn-Dn-WWI"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="133" y="139"/>
         </scene>

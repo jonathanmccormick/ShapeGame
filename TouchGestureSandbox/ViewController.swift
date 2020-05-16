@@ -20,10 +20,16 @@ class ViewController: UIViewController {
         "pink" : UIColor(red:0.85, green:0.36, blue:0.54, alpha:1.00),
     ]
     
+    var sortedKeys: [String] = []
+    
+    @IBOutlet weak var colorPicker: UIPickerView!
     @IBOutlet weak var deleteView: UIView!
     @IBAction func addBrickTapped(_ sender: Any) {
         
         addBrick(color: brickColors.randomElement()!.value)
+    }
+    @IBAction func addBrickLongPressed(_ sender: Any) {
+        colorPicker.isHidden = false
     }
     
     @IBOutlet var recognizer: UIPanGestureRecognizer!
@@ -31,9 +37,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        sortedKeys = Array(brickColors.keys).sorted(by: <)
     }
 
     private func addBrick(color: UIColor) {
+        // Make brick a type
+        // keep track of bricks and if multiple bricks are created on top of eachother offset them
         let brick = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         brick.backgroundColor = color
         brick.center = self.view.center
@@ -65,5 +75,26 @@ class ViewController: UIViewController {
             }
         }
     }
+}
+
+extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        brickColors.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return "\(sortedKeys[row])"
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
+    {
+        addBrick(color: brickColors[sortedKeys[row]]!)
+        pickerView.isHidden = true
+        pickerView.selectedRow(inComponent: 0)
+     }
 }
 
