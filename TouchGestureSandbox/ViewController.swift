@@ -49,10 +49,16 @@ class ViewController: UIViewController {
         let panGesture = sender.view
         panGesture?.center = point
         
-        print(point)
+        let isOverDeleteZone = deleteView.frame.intersects(sender.view!.frame)
+        
+        if (isOverDeleteZone) {
+            sender.view?.backgroundColor = sender.view?.backgroundColor?.withAlphaComponent(0.5)
+        } else {
+            sender.view?.backgroundColor = sender.view?.backgroundColor?.withAlphaComponent(1)
+        }
         
         if (sender.state == .ended) {
-            if (deleteView.frame.contains(point)) {
+            if (isOverDeleteZone) {
                 sender.view?.removeFromSuperview()
             }
         }
