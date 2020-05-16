@@ -51,11 +51,13 @@ class ViewController: UIViewController {
         
         let isOverDeleteZone = deleteView.frame.intersects(sender.view!.frame)
         
-        if (isOverDeleteZone) {
-            sender.view?.backgroundColor = sender.view?.backgroundColor?.withAlphaComponent(0.5)
-        } else {
-            sender.view?.backgroundColor = sender.view?.backgroundColor?.withAlphaComponent(1)
-        }
+        UIView.animate(withDuration: 0.25, animations: {
+            if (isOverDeleteZone) {
+                sender.view?.backgroundColor = sender.view?.backgroundColor?.withAlphaComponent(0.5)
+            } else {
+                sender.view?.backgroundColor = sender.view?.backgroundColor?.withAlphaComponent(1)
+            }
+        })
         
         if (sender.state == .ended) {
             if (isOverDeleteZone) {
