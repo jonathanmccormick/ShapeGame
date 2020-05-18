@@ -15,6 +15,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XOC-g5-wfd" userLabel="BrickContainer">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PJj-LB-Ixs" userLabel="Toolbar">
                                 <rect key="frame" x="0.0" y="44" width="414" height="50"/>
                                 <subviews>
@@ -63,11 +67,11 @@
                                 </constraints>
                             </view>
                             <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6do-HO-dBZ">
-                                <rect key="frame" x="0.0" y="94" width="200" height="216"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="0.0" y="94" width="150" height="216"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="400" id="Hts-Gn-zQP"/>
-                                    <constraint firstAttribute="width" constant="200" id="JMc-gN-3qb"/>
+                                    <constraint firstAttribute="width" constant="150" id="JMc-gN-3qb"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="uRP-2m-A9l"/>
@@ -77,15 +81,20 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="XOC-g5-wfd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="0gK-8v-ACW"/>
                             <constraint firstItem="PJj-LB-Ixs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="EfU-xM-Mcf"/>
+                            <constraint firstItem="XOC-g5-wfd" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ITH-zJ-2mF"/>
+                            <constraint firstItem="XOC-g5-wfd" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="KAS-fD-5Gx"/>
+                            <constraint firstItem="6do-HO-dBZ" firstAttribute="leading" secondItem="JAz-yQ-OWR" secondAttribute="leading" id="LLL-R3-1WC"/>
                             <constraint firstItem="PJj-LB-Ixs" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Xuo-tf-qCd"/>
-                            <constraint firstItem="6do-HO-dBZ" firstAttribute="top" secondItem="JAz-yQ-OWR" secondAttribute="bottom" id="afC-P5-nMn"/>
+                            <constraint firstItem="6do-HO-dBZ" firstAttribute="top" secondItem="JAz-yQ-OWR" secondAttribute="bottom" id="a2k-XK-mZN"/>
                             <constraint firstItem="PJj-LB-Ixs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="smB-af-0sr"/>
-                            <constraint firstItem="6do-HO-dBZ" firstAttribute="leading" secondItem="JAz-yQ-OWR" secondAttribute="leading" id="uIu-jj-b4U"/>
+                            <constraint firstItem="XOC-g5-wfd" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="w4c-7v-LIZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="brickContainer" destination="XOC-g5-wfd" id="nVc-As-QPa"/>
                         <outlet property="colorPicker" destination="6do-HO-dBZ" id="cBf-fd-6N4"/>
                         <outlet property="deleteView" destination="GVJ-n3-Pwk" id="EbK-x1-gJX"/>
                         <outlet property="recognizer" destination="TYH-bm-MQM" id="cT8-d6-wPt"/>

@@ -22,6 +22,7 @@ class ViewController: UIViewController {
     
     var sortedKeys: [String] = []
     
+    @IBOutlet weak var brickContainer: UIView!
     @IBOutlet weak var colorPicker: UIPickerView!
     @IBOutlet weak var deleteView: UIView!
     @IBAction func addBrickTapped(_ sender: Any) {
@@ -30,6 +31,7 @@ class ViewController: UIViewController {
     }
     @IBAction func addBrickLongPressed(_ sender: Any) {
         colorPicker.layer.zPosition = .greatestFiniteMagnitude
+        brickContainer.isUserInteractionEnabled = false
         colorPicker.isHidden = false
     }
     
@@ -52,7 +54,7 @@ class ViewController: UIViewController {
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(self.panGesture))
         brick.addGestureRecognizer(panGesture)
         
-        view.addSubview(brick)
+        brickContainer.addSubview(brick)
     }
     
     @objc func panGesture(sender: UIPanGestureRecognizer){
@@ -95,6 +97,7 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     {
         addBrick(color: brickColors[sortedKeys[row]]!)
         pickerView.isHidden = true
+        brickContainer.isUserInteractionEnabled = true
         pickerView.selectedRow(inComponent: 0)
      }
 }
