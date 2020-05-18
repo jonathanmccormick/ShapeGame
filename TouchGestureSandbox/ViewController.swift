@@ -9,33 +9,41 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var bricks: [Brick] = []
+    
+    // MARK: - Outlets
     @IBOutlet weak var brickContainer: UIView!
     @IBOutlet weak var colorPicker: UIPickerView!
     @IBOutlet weak var deleteView: UIView!
+    @IBOutlet var recognizer: UIPanGestureRecognizer!
+    
+    // MARK: - Actions
     @IBAction func addBrickTapped(_ sender: Any) {
         addBrick(color: Brick.colors.randomElement()!.value)
     }
+    
     @IBAction func addBrickLongPressed(_ sender: Any) {
         colorPicker.layer.zPosition = .greatestFiniteMagnitude
         brickContainer.isUserInteractionEnabled = false
         colorPicker.isHidden = false
     }
     
-    @IBOutlet var recognizer: UIPanGestureRecognizer!
-    
     private func addBrick(color: UIColor) {
-        // Make brick a type
-        // keep track of bricks and if multiple bricks are created on top of eachother offset them
-        let brick = Brick(color: color, center: self.view.center)
+        let brick = Brick(color: color)
         
-        // if (lastBrick.center == self.view.center) {
-        //      newBrick.center = self.view.center + 5
-        // }
+        if (bricks.last == nil) {
+            brick.center = view.center
+        } else {
+            brick.center.y = bricks.last!.center.y + 5
+            brick.center.x = bricks.last!.center.x + 5
+        }
         
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(self.panGesture))
         brick.addGestureRecognizer(panGesture)
         
         brickContainer.addSubview(brick)
+        bricks.append(brick)
     }
     
     @objc func panGesture(sender: UIPanGestureRecognizer){
