@@ -46,6 +46,9 @@ class ViewController: UIViewController {
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(self.panGesture))
         brick.addGestureRecognizer(panGesture)
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.brickTapped))
+        brick.addGestureRecognizer(tapGesture)
+        
         brickContainer.addSubview(brick)
         bricks.append(brick)
     }
@@ -74,6 +77,10 @@ class ViewController: UIViewController {
         if let brick = sender.view as? Brick {
             brick.hasBeenMoved = true
         }
+    }
+    
+    @objc func brickTapped(sender: UITapGestureRecognizer){
+        brickContainer.bringSubviewToFront(sender.view!)
     }
 }
 
