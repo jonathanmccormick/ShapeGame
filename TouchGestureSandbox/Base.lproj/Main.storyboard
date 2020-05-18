@@ -15,39 +15,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JAz-yQ-OWR">
-                                <rect key="frame" x="10" y="44" width="67" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <gestureRecognizers/>
-                                <state key="normal" title="Add Brick"/>
-                                <connections>
-                                    <action selector="addBrickTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wDq-P7-L7U"/>
-                                    <outletCollection property="gestureRecognizers" destination="bni-vt-kjH" appends="YES" id="jsk-Pc-qpX"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GVJ-n3-Pwk" userLabel="DeleteView">
-                                <rect key="frame" x="314" y="44" width="100" height="50"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PJj-LB-Ixs" userLabel="Toolbar">
+                                <rect key="frame" x="0.0" y="44" width="414" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delete" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qDu-WQ-8EG">
-                                        <rect key="frame" x="25.5" y="14.5" width="49.5" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GVJ-n3-Pwk" userLabel="DeleteView">
+                                        <rect key="frame" x="314" y="0.0" width="100" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delete" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qDu-WQ-8EG">
+                                                <rect key="frame" x="25.5" y="14.5" width="49.5" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="6Ln-KG-emc"/>
+                                            <constraint firstItem="qDu-WQ-8EG" firstAttribute="centerX" secondItem="GVJ-n3-Pwk" secondAttribute="centerX" id="ZQ6-D8-sy2"/>
+                                            <constraint firstItem="qDu-WQ-8EG" firstAttribute="centerY" secondItem="GVJ-n3-Pwk" secondAttribute="centerY" id="i9B-aL-98J"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JAz-yQ-OWR">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="Log-o1-Dh0"/>
+                                        </constraints>
+                                        <state key="normal" title="Add Brick">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addBrickTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wDq-P7-L7U"/>
+                                            <outletCollection property="gestureRecognizers" destination="bni-vt-kjH" appends="YES" id="jsk-Pc-qpX"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="6Ln-KG-emc"/>
-                                    <constraint firstAttribute="height" constant="50" id="JYi-gF-7XD"/>
-                                    <constraint firstItem="qDu-WQ-8EG" firstAttribute="centerX" secondItem="GVJ-n3-Pwk" secondAttribute="centerX" id="ZQ6-D8-sy2"/>
-                                    <constraint firstItem="qDu-WQ-8EG" firstAttribute="centerY" secondItem="GVJ-n3-Pwk" secondAttribute="centerY" id="i9B-aL-98J"/>
+                                    <constraint firstAttribute="bottom" secondItem="GVJ-n3-Pwk" secondAttribute="bottom" id="92H-cf-hyE"/>
+                                    <constraint firstAttribute="bottom" secondItem="JAz-yQ-OWR" secondAttribute="bottom" id="L5w-Wv-CUH"/>
+                                    <constraint firstAttribute="height" constant="50" id="RWy-fl-4Pc"/>
+                                    <constraint firstItem="JAz-yQ-OWR" firstAttribute="leading" secondItem="PJj-LB-Ixs" secondAttribute="leading" id="WQZ-q6-AAD"/>
+                                    <constraint firstAttribute="trailing" secondItem="GVJ-n3-Pwk" secondAttribute="trailing" id="ajp-Mg-hff"/>
+                                    <constraint firstItem="GVJ-n3-Pwk" firstAttribute="top" secondItem="PJj-LB-Ixs" secondAttribute="top" id="qup-uL-7iN"/>
+                                    <constraint firstItem="JAz-yQ-OWR" firstAttribute="top" secondItem="PJj-LB-Ixs" secondAttribute="top" id="yOv-Ku-eBh"/>
                                 </constraints>
                             </view>
                             <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6do-HO-dBZ">
-                                <rect key="frame" x="0.0" y="340" width="414" height="216"/>
+                                <rect key="frame" x="0.0" y="94" width="200" height="216"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="216" id="MNo-Rz-SRf"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="400" id="Hts-Gn-zQP"/>
+                                    <constraint firstAttribute="width" constant="200" id="JMc-gN-3qb"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="uRP-2m-A9l"/>
@@ -57,11 +77,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="6do-HO-dBZ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="FOq-93-B7K"/>
-                            <constraint firstItem="6do-HO-dBZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="exG-SN-onM"/>
-                            <constraint firstItem="6do-HO-dBZ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="nxb-Jx-mwm"/>
-                            <constraint firstItem="GVJ-n3-Pwk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="oPK-n1-SaL"/>
-                            <constraint firstItem="GVJ-n3-Pwk" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="r0V-MZ-fLe"/>
+                            <constraint firstItem="PJj-LB-Ixs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="EfU-xM-Mcf"/>
+                            <constraint firstItem="PJj-LB-Ixs" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Xuo-tf-qCd"/>
+                            <constraint firstItem="6do-HO-dBZ" firstAttribute="top" secondItem="JAz-yQ-OWR" secondAttribute="bottom" id="afC-P5-nMn"/>
+                            <constraint firstItem="PJj-LB-Ixs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="smB-af-0sr"/>
+                            <constraint firstItem="6do-HO-dBZ" firstAttribute="leading" secondItem="JAz-yQ-OWR" secondAttribute="leading" id="uIu-jj-b4U"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -84,7 +104,7 @@
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="133" y="139"/>
+            <point key="canvasLocation" x="131.8840579710145" y="138.61607142857142"/>
         </scene>
     </scenes>
 </document>
