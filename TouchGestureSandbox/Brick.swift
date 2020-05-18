@@ -30,6 +30,10 @@ class Brick: UIView {
         self.color = color
         super.init(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         backgroundColor = color
+        layer.shadowPath = UIBezierPath(rect: bounds).cgPath
+        layer.shadowRadius = 5
+        layer.shadowOffset = .zero
+        layer.shadowOpacity = 0.2
     }
     
     required init?(coder: NSCoder) {
