@@ -32,7 +32,7 @@ class ViewController: UIViewController {
     private func addBrick(color: UIColor) {
         let brick = Brick(color: color)
         
-        if (bricks.last == nil) {
+        if (bricks.last == nil || bricks.last!.hasBeenMoved) {
             brick.center = view.center
         } else {
             brick.center.y = bricks.last!.center.y + 5
@@ -65,6 +65,10 @@ class ViewController: UIViewController {
             if (isOverDeleteZone) {
                 sender.view?.removeFromSuperview()
             }
+        }
+        
+        if let brick = sender.view as? Brick {
+            brick.hasBeenMoved = true
         }
     }
 }

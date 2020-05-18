@@ -24,6 +24,7 @@ class Brick: UIView {
     public static var colorSortedKeys: [String] = Array(colors.keys).sorted(by: <)
     
     var color: UIColor
+    public var hasBeenMoved = false
     
     init(color: UIColor) {
         self.color = color
