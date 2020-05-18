@@ -29,6 +29,10 @@ class ViewController: UIViewController {
         colorPicker.isHidden = false
     }
     
+    @IBAction func DeleteTapped(_ sender: Any) {
+        bricks.popLast()?.removeFromSuperview()
+    }
+    
     private func addBrick(color: UIColor) {
         let brick = Brick(color: color)
         

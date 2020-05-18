@@ -33,11 +33,15 @@
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="6Ln-KG-emc"/>
                                             <constraint firstItem="qDu-WQ-8EG" firstAttribute="centerX" secondItem="GVJ-n3-Pwk" secondAttribute="centerX" id="ZQ6-D8-sy2"/>
                                             <constraint firstItem="qDu-WQ-8EG" firstAttribute="centerY" secondItem="GVJ-n3-Pwk" secondAttribute="centerY" id="i9B-aL-98J"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="1y2-xG-r8k" appends="YES" id="N6k-Bg-VFX"/>
+                                        </connections>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JAz-yQ-OWR">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="50"/>
@@ -112,6 +116,11 @@
                         <action selector="addBrickLongPressed:" destination="BYZ-38-t0r" id="JUn-Dn-WWI"/>
                     </connections>
                 </pongPressGestureRecognizer>
+                <tapGestureRecognizer id="1y2-xG-r8k" userLabel="Delete Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="DeleteTapped:" destination="BYZ-38-t0r" id="nKP-Tm-d5F"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="138.61607142857142"/>
         </scene>
