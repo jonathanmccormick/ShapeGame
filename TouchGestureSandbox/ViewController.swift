@@ -9,25 +9,11 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
-    let brickColors: [String: UIColor] = [
-        "black" : UIColor(red:0.00, green:0.00, blue:0.00, alpha:1.00),
-        "grey" : UIColor(red:0.83, green:0.83, blue:0.83, alpha:1.00),
-        "red" : UIColor(red:0.75, green:0.11, blue:0.09, alpha:1.00),
-        "orage" : UIColor(red:0.92, green:0.52, blue:0.16, alpha:1.00),
-        "green" : UIColor(red:0.27, green:0.58, blue:0.27, alpha:1.00),
-        "blue" : UIColor(red:0.06, green:0.31, blue:0.71, alpha:1.00),
-        "pink" : UIColor(red:0.85, green:0.36, blue:0.54, alpha:1.00),
-    ]
-    
-    var sortedKeys: [String] = []
-    
     @IBOutlet weak var brickContainer: UIView!
     @IBOutlet weak var colorPicker: UIPickerView!
     @IBOutlet weak var deleteView: UIView!
     @IBAction func addBrickTapped(_ sender: Any) {
-        
-        addBrick(color: brickColors.randomElement()!.value)
+        addBrick(color: Brick.colors.randomElement()!.value)
     }
     @IBAction func addBrickLongPressed(_ sender: Any) {
         colorPicker.layer.zPosition = .greatestFiniteMagnitude
@@ -37,19 +23,14 @@ class ViewController: UIViewController {
     
     @IBOutlet var recognizer: UIPanGestureRecognizer!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
-        sortedKeys = Array(brickColors.keys).sorted(by: <)
-    }
-
     private func addBrick(color: UIColor) {
         // Make brick a type
         // keep track of bricks and if multiple bricks are created on top of eachother offset them
-        let brick = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-        brick.backgroundColor = color
-        brick.center = self.view.center
+        let brick = Brick(color: color, center: self.view.center)
+        
+        // if (lastBrick.center == self.view.center) {
+        //      newBrick.center = self.view.center + 5
+        // }
         
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(self.panGesture))
         brick.addGestureRecognizer(panGesture)
@@ -86,16 +67,16 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        brickColors.count
+        Brick.colors.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "\(sortedKeys[row])"
+        return "\(Brick.colorSortedKeys[row])"
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
-        addBrick(color: brickColors[sortedKeys[row]]!)
+        addBrick(color: Brick.colors[Brick.colorSortedKeys[row]]!)
         pickerView.isHidden = true
         brickContainer.isUserInteractionEnabled = true
         pickerView.selectedRow(inComponent: 0)

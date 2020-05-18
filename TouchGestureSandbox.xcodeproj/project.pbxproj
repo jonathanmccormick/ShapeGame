@@ -14,7 +14,6 @@
 		F98E64FA246E0594008179A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F98E64F9246E0594008179A8 /* Assets.xcassets */; };
 		F98E64FD246E0594008179A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F98E64FB246E0594008179A8 /* LaunchScreen.storyboard */; };
 		F98E6505246F3B89008179A8 /* Brick.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98E6504246F3B89008179A8 /* Brick.swift */; };
-		F98E6507246F3BF4008179A8 /* BrickView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F98E6506246F3BF4008179A8 /* BrickView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +26,6 @@
 		F98E64FC246E0594008179A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F98E64FE246E0594008179A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F98E6504246F3B89008179A8 /* Brick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brick.swift; sourceTree = "<group>"; };
-		F98E6506246F3BF4008179A8 /* BrickView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrickView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +66,6 @@
 				F98E64FB246E0594008179A8 /* LaunchScreen.storyboard */,
 				F98E64FE246E0594008179A8 /* Info.plist */,
 				F98E6504246F3B89008179A8 /* Brick.swift */,
-				F98E6506246F3BF4008179A8 /* BrickView.xib */,
 			);
 			path = TouchGestureSandbox;
 			sourceTree = "<group>";
@@ -131,7 +128,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F98E6507246F3BF4008179A8 /* BrickView.xib in Resources */,
 				F98E64FD246E0594008179A8 /* LaunchScreen.storyboard in Resources */,
 				F98E64FA246E0594008179A8 /* Assets.xcassets in Resources */,
 				F98E64F8246E0593008179A8 /* Main.storyboard in Resources */,
