@@ -29,6 +29,7 @@ class ViewController: UIViewController {
         addBrick(color: brickColors.randomElement()!.value)
     }
     @IBAction func addBrickLongPressed(_ sender: Any) {
+        colorPicker.layer.zPosition = .greatestFiniteMagnitude
         colorPicker.isHidden = false
     }
     
