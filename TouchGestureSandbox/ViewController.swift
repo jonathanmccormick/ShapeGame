@@ -80,32 +80,39 @@ class ViewController: UIViewController {
         
         let snapConstant: CGFloat = 10
         
+        func setBrickCenter(brick: Brick, xOffset: CGFloat = 0, yOffset: CGFloat = 0) {
+//            UIView.animate(withDuration: 0.1, animations: {
+                brick.center.x -= xOffset
+                brick.center.y -= yOffset
+//            })
+        }
+        
         for _brick in bricks {
             // X
                 // Snap on approach from outside
                     // approach from the left
                     if abs(brick.frame.maxX - _brick.frame.minX) < snapConstant {
                         let offset = brick.frame.maxX - _brick.frame.minX
-                        brick.center.x = brick.center.x - offset
+                        setBrickCenter(brick: brick, xOffset: offset)
                     }
             
                     // approach from the right
                     if abs(brick.frame.minX - _brick.frame.maxX) < snapConstant {
                         let offset = brick.frame.minX - _brick.frame.maxX
-                        brick.center.x = brick.center.x - offset
+                        setBrickCenter(brick: brick, xOffset: offset)
                     }
             
                 // Snap on approach from inside
                     // exit from left
                     if abs(brick.frame.maxX - _brick.frame.maxX) < snapConstant {
                         let offset = brick.frame.maxX - _brick.frame.maxX
-                        brick.center.x = brick.center.x - offset
+                        setBrickCenter(brick: brick, xOffset: offset)
                     }
             
                     // exit from right
                     if abs(brick.frame.minX - _brick.frame.minX) < snapConstant {
                         let offset = brick.frame.minX - _brick.frame.minX
-                        brick.center.x = brick.center.x - offset
+                        setBrickCenter(brick: brick, xOffset: offset)
                     }
             
             // Y
@@ -113,26 +120,26 @@ class ViewController: UIViewController {
                     // approach from top
                     if abs(brick.frame.maxY - _brick.frame.minY) < snapConstant {
                         let offset = brick.frame.maxY - _brick.frame.minY
-                        brick.center.y = brick.center.y - offset
+                        setBrickCenter(brick: brick, yOffset: offset)
                     }
                     
                     // approach from bottom
                     if abs(brick.frame.minY - _brick.frame.maxY) < snapConstant {
                         let offset = brick.frame.minY - _brick.frame.maxY
-                        brick.center.y = brick.center.y - offset
+                        setBrickCenter(brick: brick, yOffset: offset)
                     }
             
                 // Snap on approach from inside
                     // exit top
                     if abs(brick.frame.maxY - _brick.frame.maxY) < snapConstant {
                         let offset = brick.frame.maxY - _brick.frame.maxY
-                        brick.center.y = brick.center.y - offset
+                        setBrickCenter(brick: brick, yOffset: offset)
                     }
                     
                     // exit bottom
                     if abs(brick.frame.minY - _brick.frame.minY) < snapConstant {
                         let offset = brick.frame.minY - _brick.frame.minY
-                        brick.center.y = brick.center.y - offset
+                        setBrickCenter(brick: brick, yOffset: offset)
                     }
         }
     }
