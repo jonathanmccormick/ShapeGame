@@ -95,10 +95,8 @@ class ViewController: UIViewController {
         }
          
         func setBrickCenter(brick: Brick, xOffset: CGFloat = 0, yOffset: CGFloat = 0) {
-//            UIView.animate(withDuration: 0.1, animations: {
                 brick.center.x -= xOffset
                 brick.center.y -= yOffset
-//            })
         }
         
         for _brick in bricks {
