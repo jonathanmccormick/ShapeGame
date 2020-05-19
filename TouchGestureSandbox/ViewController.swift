@@ -80,6 +80,20 @@ class ViewController: UIViewController {
         
         let snapConstant: CGFloat = 10
         
+        func calculateXOffset(_ offset: CGFloat) {
+            if abs(offset) < snapConstant {
+                let offset = offset
+                setBrickCenter(brick: brick, xOffset: offset)
+            }
+        }
+        
+        func calculateYOffset(_ offset: CGFloat) {
+            if abs(offset) < snapConstant {
+                let offset = offset
+                setBrickCenter(brick: brick, yOffset: offset)
+            }
+        }
+         
         func setBrickCenter(brick: Brick, xOffset: CGFloat = 0, yOffset: CGFloat = 0) {
 //            UIView.animate(withDuration: 0.1, animations: {
                 brick.center.x -= xOffset
@@ -91,56 +105,32 @@ class ViewController: UIViewController {
             // X
                 // Snap on approach from outside
                     // approach from the left
-                    if abs(brick.frame.maxX - _brick.frame.minX) < snapConstant {
-                        let offset = brick.frame.maxX - _brick.frame.minX
-                        setBrickCenter(brick: brick, xOffset: offset)
-                    }
+                    calculateXOffset(brick.frame.maxX - _brick.frame.minX)
             
                     // approach from the right
-                    if abs(brick.frame.minX - _brick.frame.maxX) < snapConstant {
-                        let offset = brick.frame.minX - _brick.frame.maxX
-                        setBrickCenter(brick: brick, xOffset: offset)
-                    }
+                    calculateXOffset(brick.frame.minX - _brick.frame.maxX)
             
                 // Snap on approach from inside
                     // exit from left
-                    if abs(brick.frame.maxX - _brick.frame.maxX) < snapConstant {
-                        let offset = brick.frame.maxX - _brick.frame.maxX
-                        setBrickCenter(brick: brick, xOffset: offset)
-                    }
+                    calculateXOffset(brick.frame.maxX - _brick.frame.maxX)
             
                     // exit from right
-                    if abs(brick.frame.minX - _brick.frame.minX) < snapConstant {
-                        let offset = brick.frame.minX - _brick.frame.minX
-                        setBrickCenter(brick: brick, xOffset: offset)
-                    }
+                    calculateXOffset(brick.frame.minX - _brick.frame.minX)
             
             // Y
                 // Snap on approach from outside
                     // approach from top
-                    if abs(brick.frame.maxY - _brick.frame.minY) < snapConstant {
-                        let offset = brick.frame.maxY - _brick.frame.minY
-                        setBrickCenter(brick: brick, yOffset: offset)
-                    }
+                    calculateYOffset(brick.frame.maxY - _brick.frame.minY)
                     
                     // approach from bottom
-                    if abs(brick.frame.minY - _brick.frame.maxY) < snapConstant {
-                        let offset = brick.frame.minY - _brick.frame.maxY
-                        setBrickCenter(brick: brick, yOffset: offset)
-                    }
+                    calculateYOffset(brick.frame.minY - _brick.frame.maxY)
             
                 // Snap on approach from inside
                     // exit top
-                    if abs(brick.frame.maxY - _brick.frame.maxY) < snapConstant {
-                        let offset = brick.frame.maxY - _brick.frame.maxY
-                        setBrickCenter(brick: brick, yOffset: offset)
-                    }
+                    calculateYOffset(brick.frame.maxY - _brick.frame.maxY)
                     
                     // exit bottom
-                    if abs(brick.frame.minY - _brick.frame.minY) < snapConstant {
-                        let offset = brick.frame.minY - _brick.frame.minY
-                        setBrickCenter(brick: brick, yOffset: offset)
-                    }
+                    calculateYOffset(brick.frame.minY - _brick.frame.minY)
         }
     }
     
