@@ -54,11 +54,13 @@ class ViewController: UIViewController {
     }
     
     @objc func panGesture(sender: UIPanGestureRecognizer){
-        let point = sender.location(in: view)
-        let panGesture = sender.view
-        panGesture?.center = point
+        guard let brick = sender.view as? Brick else {
+            return
+        }
         
-        let isOverDeleteZone = deleteView.frame.intersects(sender.view!.frame)
+        brick.center = sender.location(in: view)
+        
+        let isOverDeleteZone = deleteView.frame.intersects(brick.frame)
         
         UIView.animate(withDuration: 0.25, animations: {
             if (isOverDeleteZone) {
