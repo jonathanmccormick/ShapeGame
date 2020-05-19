@@ -32,6 +32,10 @@ class Brick: UIView {
     
     // MARK: Snapping logic
     public func snapIfCloseToAny(of bricks: [Brick]) {
+        
+        // performance: loop through all the bricks and add any that are within a certain distance (300) to a working array to cut down on performance. we don't need to be checking every single brick, only those that are close by.
+        // maybe later when a brick is picked up create an array of all bricks sorted by distance from this brick and loop through the closest ones but look through more if the user moves the brick a lot.
+        
         for _brick in bricks {
             
             var xOffsets: [CGFloat?] = []
@@ -70,9 +74,9 @@ class Brick: UIView {
             xOffsets = xOffsets.filter{ $0 != nil}
             yOffsets = yOffsets.filter{ $0 != nil}
             
-            if (!xOffsets.isEmpty || !yOffsets.isEmpty) {
-                print("\(xOffsets), \(yOffsets)")
-            }
+//            if (!xOffsets.isEmpty || !yOffsets.isEmpty) {
+//                print("\(xOffsets), \(yOffsets)")
+//            }
             
             if (!xOffsets.isEmpty && !yOffsets.isEmpty)
             {
