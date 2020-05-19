@@ -76,8 +76,21 @@ class ViewController: UIViewController {
             }
         }
         
-        if let brick = sender.view as? Brick {
-            brick.hasBeenMoved = true
+        brick.hasBeenMoved = true
+        
+        let snapConstant: CGFloat = 20
+        
+        for _brick in bricks {
+            if abs(_brick.frame.minX - brick.frame.maxX) < snapConstant {
+                let offset = brick.frame.maxX - _brick.frame.minX
+                brick.center.x = brick.center.x - offset
+            }
+            
+            if abs(_brick.frame.maxX - brick.frame.minX) < snapConstant {
+                let offset = brick.frame.minX - _brick.frame.maxX
+                brick.center.x = brick.center.x - offset
+                print(offset)
+            }
         }
     }
     
