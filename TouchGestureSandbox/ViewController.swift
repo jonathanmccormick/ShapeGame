@@ -81,15 +81,24 @@ class ViewController: UIViewController {
         let snapConstant: CGFloat = 20
         
         for _brick in bricks {
-            if abs(_brick.frame.minX - brick.frame.maxX) < snapConstant {
+            if abs(brick.frame.maxX - _brick.frame.minX) < snapConstant {
                 let offset = brick.frame.maxX - _brick.frame.minX
                 brick.center.x = brick.center.x - offset
             }
             
-            if abs(_brick.frame.maxX - brick.frame.minX) < snapConstant {
+            if abs(brick.frame.minX - _brick.frame.maxX) < snapConstant {
                 let offset = brick.frame.minX - _brick.frame.maxX
                 brick.center.x = brick.center.x - offset
-                print(offset)
+            }
+            
+            if abs(brick.frame.maxY - _brick.frame.minY) < snapConstant {
+                let offset = brick.frame.maxY - _brick.frame.minY
+                brick.center.y = brick.center.y - offset
+            }
+            
+            if abs(brick.frame.minY - _brick.frame.maxY) < snapConstant {
+                let offset = brick.frame.minY - _brick.frame.maxY
+                brick.center.y = brick.center.y - offset
             }
         }
     }
