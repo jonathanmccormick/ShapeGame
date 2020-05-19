@@ -83,18 +83,18 @@ class ViewController: UIViewController {
         func calculateXOffset(_ offset: CGFloat) {
             if abs(offset) < snapConstant {
                 let offset = offset
-                setBrickCenter(brick: brick, xOffset: offset)
+                setBrickCenter(xOffset: offset)
             }
         }
         
         func calculateYOffset(_ offset: CGFloat) {
             if abs(offset) < snapConstant {
                 let offset = offset
-                setBrickCenter(brick: brick, yOffset: offset)
+                setBrickCenter(yOffset: offset)
             }
         }
          
-        func setBrickCenter(brick: Brick, xOffset: CGFloat = 0, yOffset: CGFloat = 0) {
+        func setBrickCenter(xOffset: CGFloat = 0, yOffset: CGFloat = 0) {
                 brick.center.x -= xOffset
                 brick.center.y -= yOffset
         }
