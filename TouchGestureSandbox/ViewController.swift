@@ -78,7 +78,7 @@ class ViewController: UIViewController {
         
         brick.hasBeenMoved = true
         
-        let snapConstant: CGFloat = 20
+        let snapConstant: CGFloat = 10
         
         for _brick in bricks {
             // X
