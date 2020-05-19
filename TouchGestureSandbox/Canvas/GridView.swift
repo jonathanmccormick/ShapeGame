@@ -22,7 +22,7 @@ class GridView: UIView {
     private let arbitraryLargeOffset: CGFloat = 10000000.0
 
     private(set) var referenceCoordinates: (Int, Int) = (0, 0)
-    private(set) var tileSize: CGFloat = 100.0
+    private(set) var tileSize: CGFloat = 50.0
     private(set) var centreCoordinates: (Int, Int) = (Int.max, Int.max)
 
     private(set) var observingScrollview: Bool = false

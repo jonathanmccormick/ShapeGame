@@ -23,11 +23,11 @@
                                         <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9oX-fY-piJ" customClass="GridView" customModule="TouchGestureSandbox" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="100" id="aNk-mx-3Ym"/>
-                                                    <constraint firstAttribute="height" constant="100" id="eIX-y4-Hkb"/>
+                                                    <constraint firstAttribute="width" constant="50" id="aNk-mx-3Ym"/>
+                                                    <constraint firstAttribute="height" constant="50" id="eIX-y4-Hkb"/>
                                                 </constraints>
                                                 <connections>
                                                     <outlet property="bottomConstraint" destination="wEI-e4-jLa" id="ZdV-3m-QPD"/>
