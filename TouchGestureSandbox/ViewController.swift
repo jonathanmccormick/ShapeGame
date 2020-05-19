@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var gridView: GridView!
     @IBOutlet weak var colorPicker: UIPickerView!
+    @IBOutlet weak var addBrickButton: UIButton!
     @IBOutlet weak var deleteView: UIView!
     @IBOutlet var recognizer: UIPanGestureRecognizer!
     
@@ -84,6 +85,18 @@ class ViewController: UIViewController {
                 bricks.remove(at: bricks.firstIndex(of: brick)!)
                 brick.removeFromSuperview()
             }
+        }
+        
+        let isOverAddZone = brick.frame.intersects(addBrickButton.convert(brick.frame, from: brick))
+        
+        if (isOverAddZone) {
+            addBrickButton.titleLabel?.text = "Copy Brick"
+        } else {
+            addBrickButton.titleLabel?.text = "Add Brick"
+        }
+        
+        if (isOverAddZone && sender.state == .ended) {
+            addBrick(color: brick.color)
         }
         
         brick.hasBeenMoved = true

@@ -134,6 +134,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="addBrickButton" destination="JAz-yQ-OWR" id="Yqh-ZU-ChB"/>
                         <outlet property="canvas" destination="JdH-7G-GI5" id="J93-2g-yhx"/>
                         <outlet property="colorPicker" destination="6do-HO-dBZ" id="cBf-fd-6N4"/>
                         <outlet property="deleteView" destination="GVJ-n3-Pwk" id="EbK-x1-gJX"/>
