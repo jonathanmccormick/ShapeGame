@@ -17,6 +17,16 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XOC-g5-wfd" userLabel="BrickContainer">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u5o-mY-YKm">
+                                        <rect key="frame" x="349" y="126" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <segue destination="ii5-9c-rim" kind="show" id="1nX-d4-ALL"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PJj-LB-Ixs" userLabel="Toolbar">
@@ -123,6 +133,56 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="138.61607142857142"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="0EC-7P-OhS">
+            <objects>
+                <viewController id="ii5-9c-rim" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JdH-7G-GI5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" maximumZoomScale="14" translatesAutoresizingMaskIntoConstraints="NO" id="g6Y-2Y-6Pf">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9oX-fY-piJ" customClass="GridView" customModule="TouchGestureSandbox" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="aNk-mx-3Ym"/>
+                                            <constraint firstAttribute="height" constant="100" id="eIX-y4-Hkb"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="bottomConstraint" destination="wEI-e4-jLa" id="ZdV-3m-QPD"/>
+                                            <outlet property="hostScrollView" destination="g6Y-2Y-6Pf" id="ObV-Gl-34R"/>
+                                            <outlet property="leftConstraint" destination="y9i-nw-12m" id="91Y-0f-w4i"/>
+                                            <outlet property="rightConstraint" destination="UWo-tQ-wrq" id="3Na-E0-hyJ"/>
+                                            <outlet property="topConstraint" destination="HFH-My-PT8" id="tpn-6h-ShF"/>
+                                        </connections>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="9oX-fY-piJ" firstAttribute="top" secondItem="g6Y-2Y-6Pf" secondAttribute="top" id="HFH-My-PT8"/>
+                                    <constraint firstAttribute="trailing" secondItem="9oX-fY-piJ" secondAttribute="trailing" id="UWo-tQ-wrq"/>
+                                    <constraint firstAttribute="bottom" secondItem="9oX-fY-piJ" secondAttribute="bottom" id="wEI-e4-jLa"/>
+                                    <constraint firstItem="9oX-fY-piJ" firstAttribute="leading" secondItem="g6Y-2Y-6Pf" secondAttribute="leading" id="y9i-nw-12m"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="g6Y-2Y-6Pf" firstAttribute="top" secondItem="ShL-az-NvT" secondAttribute="top" id="02V-Ww-yTi"/>
+                            <constraint firstItem="g6Y-2Y-6Pf" firstAttribute="bottom" secondItem="ShL-az-NvT" secondAttribute="bottom" id="d9L-kV-zSI"/>
+                            <constraint firstAttribute="trailing" secondItem="g6Y-2Y-6Pf" secondAttribute="trailing" id="gue-0Q-sqo"/>
+                            <constraint firstItem="g6Y-2Y-6Pf" firstAttribute="leading" secondItem="ShL-az-NvT" secondAttribute="leading" id="uOE-z3-mT1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ShL-az-NvT"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="KW4-LX-qQW"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D6c-UH-BfM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="805.79710144927537" y="138.61607142857142"/>
         </scene>
     </scenes>
 </document>
