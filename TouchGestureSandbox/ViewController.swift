@@ -88,7 +88,7 @@ class ViewController: UIViewController {
     }
     
     @objc func brickTapped(sender: UITapGestureRecognizer){
-        canvas.bringSubviewToFront(sender.view!)
+        scrollView.bringSubviewToFront(sender.view!)
     }
 }
 
