@@ -15,7 +15,6 @@
 		F98E64FD246E0594008179A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F98E64FB246E0594008179A8 /* LaunchScreen.storyboard */; };
 		F98E6505246F3B89008179A8 /* Brick.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98E6504246F3B89008179A8 /* Brick.swift */; };
 		F9AAEE6E24743F2D008B34B6 /* GridTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AAEE6A24743F2C008B34B6 /* GridTile.swift */; };
-		F9AAEE6F24743F2D008B34B6 /* Grid.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9AAEE6B24743F2C008B34B6 /* Grid.storyboard */; };
 		F9AAEE7024743F2D008B34B6 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AAEE6D24743F2D008B34B6 /* GridView.swift */; };
 /* End PBXBuildFile section */
 
@@ -30,7 +29,6 @@
 		F98E64FE246E0594008179A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F98E6504246F3B89008179A8 /* Brick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brick.swift; sourceTree = "<group>"; };
 		F9AAEE6A24743F2C008B34B6 /* GridTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridTile.swift; path = "../../../Infinite-Grid-Swift/Infinite-Grid-Swift/GridTile.swift"; sourceTree = "<group>"; };
-		F9AAEE6C24743F2C008B34B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "../../../Infinite-Grid-Swift/Infinite-Grid-Swift/Base.lproj/Grid.storyboard"; sourceTree = "<group>"; };
 		F9AAEE6D24743F2D008B34B6 /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridView.swift; path = "../../../Infinite-Grid-Swift/Infinite-Grid-Swift/GridView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,7 +80,6 @@
 			children = (
 				F9AAEE6A24743F2C008B34B6 /* GridTile.swift */,
 				F9AAEE6D24743F2D008B34B6 /* GridView.swift */,
-				F9AAEE6B24743F2C008B34B6 /* Grid.storyboard */,
 			);
 			path = Canvas;
 			sourceTree = "<group>";
@@ -148,7 +145,6 @@
 				F98E64FD246E0594008179A8 /* LaunchScreen.storyboard in Resources */,
 				F98E64FA246E0594008179A8 /* Assets.xcassets in Resources */,
 				F98E64F8246E0593008179A8 /* Main.storyboard in Resources */,
-				F9AAEE6F24743F2D008B34B6 /* Grid.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,14 +181,6 @@
 				F98E64FC246E0594008179A8 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		F9AAEE6B24743F2C008B34B6 /* Grid.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F9AAEE6C24743F2C008B34B6 /* Base */,
-			);
-			name = Grid.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
