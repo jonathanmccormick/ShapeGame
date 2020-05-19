@@ -47,6 +47,7 @@
                                     </scrollView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="g6Y-2Y-6Pf" firstAttribute="top" secondItem="ShL-az-NvT" secondAttribute="top" id="02V-Ww-yTi"/>
                                     <constraint firstItem="g6Y-2Y-6Pf" firstAttribute="bottom" secondItem="ShL-az-NvT" secondAttribute="bottom" id="d9L-kV-zSI"/>
@@ -54,6 +55,9 @@
                                     <constraint firstItem="g6Y-2Y-6Pf" firstAttribute="leading" secondItem="ShL-az-NvT" secondAttribute="leading" id="uOE-z3-mT1"/>
                                 </constraints>
                                 <viewLayoutGuide key="safeArea" id="ShL-az-NvT"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Wg1-dC-Pby" appends="YES" id="i7a-G6-oeO"/>
+                                </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PJj-LB-Ixs" userLabel="Toolbar">
                                 <rect key="frame" x="0.0" y="44" width="414" height="50"/>
@@ -153,6 +157,11 @@
                 <tapGestureRecognizer id="1y2-xG-r8k" userLabel="Delete Tap Gesture Recognizer">
                     <connections>
                         <action selector="DeleteTapped:" destination="BYZ-38-t0r" id="nKP-Tm-d5F"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="Wg1-dC-Pby" userLabel="Canvas Triple Tapped Recognizer">
+                    <connections>
+                        <action selector="canvasTripleTapped:" destination="BYZ-38-t0r" id="c1G-MI-nYv"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

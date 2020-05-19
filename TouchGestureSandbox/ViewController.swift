@@ -34,6 +34,14 @@ class ViewController: UIViewController {
     @IBAction func DeleteTapped(_ sender: Any) {
         bricks.popLast()?.removeFromSuperview()
     }
+    @IBAction func canvasTripleTapped(_ sender: Any) {
+        guard let firstBrick = bricks.first else { return }
+        
+        let xOffset = firstBrick.center.x - (scrollView.frame.width * 0.5)
+        let yOffset = firstBrick.center.y - (scrollView.frame.height * 0.5)
+        
+        scrollView.setContentOffset(CGPoint(x: xOffset, y: yOffset), animated: true)
+    }
     
     private func addBrick(color: UIColor) {
         let brick = Brick(color: color)
