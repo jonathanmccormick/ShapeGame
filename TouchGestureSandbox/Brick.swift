@@ -34,8 +34,8 @@ class Brick: UIView {
     public func snapIfCloseToAny(of bricks: [Brick]) {
         for _brick in bricks {
             
-            var xOffsets: [CGFloat] = []
-            var yOffsets: [CGFloat] = []
+            var xOffsets: [CGFloat?] = []
+            var yOffsets: [CGFloat?] = []
 
             // X
                 // Snap on approach from outside
@@ -67,12 +67,16 @@ class Brick: UIView {
                     // exit bottom
                     yOffsets.append(calculateYOffset(frame.minY - _brick.frame.minY))
             
-            xOffsets = xOffsets.filter{ $0 != 0}
-            yOffsets = yOffsets.filter{ $0 != 0}
+            xOffsets = xOffsets.filter{ $0 != nil}
+            yOffsets = yOffsets.filter{ $0 != nil}
+            
+            if (!xOffsets.isEmpty || !yOffsets.isEmpty) {
+                print("\(xOffsets), \(yOffsets)")
+            }
             
             if (!xOffsets.isEmpty && !yOffsets.isEmpty)
             {
-                setBrickCenter(xOffset: xOffsets.first!, yOffset: yOffsets.first!)
+                setBrickCenter(xOffset: xOffsets.first!!, yOffset: yOffsets.first!!)
             }
         }
     }
@@ -82,22 +86,22 @@ class Brick: UIView {
         center.y -= yOffset
     }
     
-    func calculateXOffset(_ offset: CGFloat) -> CGFloat {
+    func calculateXOffset(_ offset: CGFloat) -> CGFloat? {
         if abs(offset) < snapConstant {
             let offset = offset
             return offset
         }
         
-        return 0
+        return nil
     }
     
-    func calculateYOffset(_ offset: CGFloat) -> CGFloat {
+    func calculateYOffset(_ offset: CGFloat) -> CGFloat? {
         if abs(offset) < snapConstant {
             let offset = offset
             return offset
         }
         
-        return 0
+        return nil
     }
 }
 
