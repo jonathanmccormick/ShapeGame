@@ -82,46 +82,58 @@ class ViewController: UIViewController {
         
         for _brick in bricks {
             // X
-            if abs(brick.frame.maxX - _brick.frame.minX) < snapConstant {
-                let offset = brick.frame.maxX - _brick.frame.minX
-                brick.center.x = brick.center.x - offset
-            }
+                // Snap on approach from outside
+                    // approach from the left
+                    if abs(brick.frame.maxX - _brick.frame.minX) < snapConstant {
+                        let offset = brick.frame.maxX - _brick.frame.minX
+                        brick.center.x = brick.center.x - offset
+                    }
             
-            if abs(brick.frame.minX - _brick.frame.maxX) < snapConstant {
-                let offset = brick.frame.minX - _brick.frame.maxX
-                brick.center.x = brick.center.x - offset
-            }
+                    // approach from the right
+                    if abs(brick.frame.minX - _brick.frame.maxX) < snapConstant {
+                        let offset = brick.frame.minX - _brick.frame.maxX
+                        brick.center.x = brick.center.x - offset
+                    }
             
-            if abs(brick.frame.maxX - _brick.frame.maxX) < snapConstant {
-                let offset = brick.frame.maxX - _brick.frame.maxX
-                brick.center.x = brick.center.x - offset
-            }
+                // Snap on approach from inside
+                    // exit from left
+                    if abs(brick.frame.maxX - _brick.frame.maxX) < snapConstant {
+                        let offset = brick.frame.maxX - _brick.frame.maxX
+                        brick.center.x = brick.center.x - offset
+                    }
             
-            if abs(brick.frame.minX - _brick.frame.minX) < snapConstant {
-                let offset = brick.frame.minX - _brick.frame.minX
-                brick.center.x = brick.center.x - offset
-            }
+                    // exit from right
+                    if abs(brick.frame.minX - _brick.frame.minX) < snapConstant {
+                        let offset = brick.frame.minX - _brick.frame.minX
+                        brick.center.x = brick.center.x - offset
+                    }
             
             // Y
-            if abs(brick.frame.maxY - _brick.frame.minY) < snapConstant {
-                let offset = brick.frame.maxY - _brick.frame.minY
-                brick.center.y = brick.center.y - offset
-            }
+                // Snap on approach from outside
+                    // approach from top
+                    if abs(brick.frame.maxY - _brick.frame.minY) < snapConstant {
+                        let offset = brick.frame.maxY - _brick.frame.minY
+                        brick.center.y = brick.center.y - offset
+                    }
+                    
+                    // approach from bottom
+                    if abs(brick.frame.minY - _brick.frame.maxY) < snapConstant {
+                        let offset = brick.frame.minY - _brick.frame.maxY
+                        brick.center.y = brick.center.y - offset
+                    }
             
-            if abs(brick.frame.minY - _brick.frame.maxY) < snapConstant {
-                let offset = brick.frame.minY - _brick.frame.maxY
-                brick.center.y = brick.center.y - offset
-            }
-            
-            if abs(brick.frame.maxY - _brick.frame.maxY) < snapConstant {
-                let offset = brick.frame.maxY - _brick.frame.maxY
-                brick.center.y = brick.center.y - offset
-            }
-            
-            if abs(brick.frame.minY - _brick.frame.minY) < snapConstant {
-                let offset = brick.frame.minY - _brick.frame.minY
-                brick.center.y = brick.center.y - offset
-            }
+                // Snap on approach from inside
+                    // exit top
+                    if abs(brick.frame.maxY - _brick.frame.maxY) < snapConstant {
+                        let offset = brick.frame.maxY - _brick.frame.maxY
+                        brick.center.y = brick.center.y - offset
+                    }
+                    
+                    // exit bottom
+                    if abs(brick.frame.minY - _brick.frame.minY) < snapConstant {
+                        let offset = brick.frame.minY - _brick.frame.minY
+                        brick.center.y = brick.center.y - offset
+                    }
         }
     }
     
