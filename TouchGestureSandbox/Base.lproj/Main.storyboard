@@ -15,9 +15,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XOC-g5-wfd" userLabel="BrickContainer">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <view contentMode="scaleToFill" id="JdH-7G-GI5" userLabel="Canvas">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" maximumZoomScale="14" translatesAutoresizingMaskIntoConstraints="NO" id="g6Y-2Y-6Pf">
+                                        <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9oX-fY-piJ" customClass="GridView" customModule="TouchGestureSandbox" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="50" id="aNk-mx-3Ym"/>
+                                                    <constraint firstAttribute="height" constant="50" id="eIX-y4-Hkb"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="bottomConstraint" destination="wEI-e4-jLa" id="ZdV-3m-QPD"/>
+                                                    <outlet property="hostScrollView" destination="g6Y-2Y-6Pf" id="ObV-Gl-34R"/>
+                                                    <outlet property="leftConstraint" destination="y9i-nw-12m" id="91Y-0f-w4i"/>
+                                                    <outlet property="rightConstraint" destination="UWo-tQ-wrq" id="3Na-E0-hyJ"/>
+                                                    <outlet property="topConstraint" destination="HFH-My-PT8" id="tpn-6h-ShF"/>
+                                                </connections>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="9oX-fY-piJ" firstAttribute="top" secondItem="g6Y-2Y-6Pf" secondAttribute="top" id="HFH-My-PT8"/>
+                                            <constraint firstAttribute="trailing" secondItem="9oX-fY-piJ" secondAttribute="trailing" id="UWo-tQ-wrq"/>
+                                            <constraint firstAttribute="bottom" secondItem="9oX-fY-piJ" secondAttribute="bottom" id="wEI-e4-jLa"/>
+                                            <constraint firstItem="9oX-fY-piJ" firstAttribute="leading" secondItem="g6Y-2Y-6Pf" secondAttribute="leading" id="y9i-nw-12m"/>
+                                        </constraints>
+                                    </scrollView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="g6Y-2Y-6Pf" firstAttribute="top" secondItem="ShL-az-NvT" secondAttribute="top" id="02V-Ww-yTi"/>
+                                    <constraint firstItem="g6Y-2Y-6Pf" firstAttribute="bottom" secondItem="ShL-az-NvT" secondAttribute="bottom" id="d9L-kV-zSI"/>
+                                    <constraint firstAttribute="trailing" secondItem="g6Y-2Y-6Pf" secondAttribute="trailing" id="gue-0Q-sqo"/>
+                                    <constraint firstItem="g6Y-2Y-6Pf" firstAttribute="leading" secondItem="ShL-az-NvT" secondAttribute="leading" id="uOE-z3-mT1"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="ShL-az-NvT"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Wg1-dC-Pby" appends="YES" id="i7a-G6-oeO"/>
+                                </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PJj-LB-Ixs" userLabel="Toolbar">
                                 <rect key="frame" x="0.0" y="44" width="414" height="50"/>
@@ -85,23 +125,21 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="XOC-g5-wfd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="0gK-8v-ACW"/>
                             <constraint firstItem="PJj-LB-Ixs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="EfU-xM-Mcf"/>
-                            <constraint firstItem="XOC-g5-wfd" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ITH-zJ-2mF"/>
-                            <constraint firstItem="XOC-g5-wfd" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="KAS-fD-5Gx"/>
                             <constraint firstItem="6do-HO-dBZ" firstAttribute="leading" secondItem="JAz-yQ-OWR" secondAttribute="leading" id="LLL-R3-1WC"/>
                             <constraint firstItem="PJj-LB-Ixs" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Xuo-tf-qCd"/>
                             <constraint firstItem="6do-HO-dBZ" firstAttribute="top" secondItem="JAz-yQ-OWR" secondAttribute="bottom" id="a2k-XK-mZN"/>
                             <constraint firstItem="PJj-LB-Ixs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="smB-af-0sr"/>
-                            <constraint firstItem="XOC-g5-wfd" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="w4c-7v-LIZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="brickContainer" destination="XOC-g5-wfd" id="nVc-As-QPa"/>
+                        <outlet property="canvas" destination="JdH-7G-GI5" id="J93-2g-yhx"/>
                         <outlet property="colorPicker" destination="6do-HO-dBZ" id="cBf-fd-6N4"/>
                         <outlet property="deleteView" destination="GVJ-n3-Pwk" id="EbK-x1-gJX"/>
+                        <outlet property="gridView" destination="9oX-fY-piJ" id="7lg-kL-Kly"/>
                         <outlet property="recognizer" destination="TYH-bm-MQM" id="cT8-d6-wPt"/>
+                        <outlet property="scrollView" destination="g6Y-2Y-6Pf" id="IsU-IH-7n7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -119,6 +157,11 @@
                 <tapGestureRecognizer id="1y2-xG-r8k" userLabel="Delete Tap Gesture Recognizer">
                     <connections>
                         <action selector="DeleteTapped:" destination="BYZ-38-t0r" id="nKP-Tm-d5F"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="Wg1-dC-Pby" userLabel="Canvas double tap recognizer">
+                    <connections>
+                        <action selector="returnUserToFirstBrickIfDoubleTapped:" destination="BYZ-38-t0r" id="XKn-tY-wGu"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

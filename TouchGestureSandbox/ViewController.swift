@@ -13,7 +13,9 @@ class ViewController: UIViewController {
     var bricks: [Brick] = []
     
     // MARK: - Outlets
-    @IBOutlet weak var brickContainer: UIView!
+    @IBOutlet weak var canvas: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var gridView: GridView!
     @IBOutlet weak var colorPicker: UIPickerView!
     @IBOutlet weak var deleteView: UIView!
     @IBOutlet var recognizer: UIPanGestureRecognizer!
@@ -25,31 +27,35 @@ class ViewController: UIViewController {
     
     @IBAction func addBrickLongPressed(_ sender: Any) {
         colorPicker.layer.zPosition = .greatestFiniteMagnitude
-        brickContainer.isUserInteractionEnabled = false
+        canvas.isUserInteractionEnabled = false
         colorPicker.isHidden = false
     }
     
     @IBAction func DeleteTapped(_ sender: Any) {
         bricks.popLast()?.removeFromSuperview()
     }
+    @IBAction func returnUserToFirstBrickIfDoubleTapped(_ sender: Any) {
+        guard let firstBrick = bricks.first else { return }
+        
+        let xOffset = firstBrick.center.x - (scrollView.frame.width * 0.5)
+        let yOffset = firstBrick.center.y - (scrollView.frame.height * 0.5)
+        
+        scrollView.setContentOffset(CGPoint(x: xOffset, y: yOffset), animated: true)
+    }
     
     private func addBrick(color: UIColor) {
         let brick = Brick(color: color)
         
-        if (bricks.last == nil || bricks.last!.hasBeenMoved) {
-            brick.center = view.center
-        } else {
-            brick.center.y = bricks.last!.center.y + 5
-            brick.center.x = bricks.last!.center.x + 5
-        }
-        
+        brick.center.x = scrollView.contentOffset.x + (scrollView.frame.width * 0.5)
+        brick.center.y = scrollView.contentOffset.y + (scrollView.frame.height * 0.5)
+
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(self.panGesture))
         brick.addGestureRecognizer(panGesture)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.brickTapped))
         brick.addGestureRecognizer(tapGesture)
         
-        brickContainer.addSubview(brick)
+        scrollView.addSubview(brick)
         bricks.append(brick)
     }
     
@@ -58,7 +64,8 @@ class ViewController: UIViewController {
             return
         }
         
-        brick.center = sender.location(in: view)
+        brick.center.x = scrollView.contentOffset.x + sender.location(in: view).x
+        brick.center.y = scrollView.contentOffset.y + sender.location(in: view).y
         
         let isOverDeleteZone = deleteView.frame.intersects(brick.frame)
         
@@ -81,7 +88,7 @@ class ViewController: UIViewController {
     }
     
     @objc func brickTapped(sender: UITapGestureRecognizer){
-        brickContainer.bringSubviewToFront(sender.view!)
+        canvas.bringSubviewToFront(sender.view!)
     }
 }
 
@@ -102,7 +109,7 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     {
         addBrick(color: Brick.colors[Brick.colorSortedKeys[row]]!)
         pickerView.isHidden = true
-        brickContainer.isUserInteractionEnabled = true
+        canvas.isUserInteractionEnabled = true
         pickerView.selectedRow(inComponent: 0)
      }
 }
