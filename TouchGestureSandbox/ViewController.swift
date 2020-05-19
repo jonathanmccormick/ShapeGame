@@ -34,7 +34,7 @@ class ViewController: UIViewController {
     @IBAction func DeleteTapped(_ sender: Any) {
         bricks.popLast()?.removeFromSuperview()
     }
-    @IBAction func canvasTripleTapped(_ sender: Any) {
+    @IBAction func returnUserToFirstBrickIfDoubleTapped(_ sender: Any) {
         guard let firstBrick = bricks.first else { return }
         
         let xOffset = firstBrick.center.x - (scrollView.frame.width * 0.5)

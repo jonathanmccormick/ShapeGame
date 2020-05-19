@@ -159,9 +159,9 @@
                         <action selector="DeleteTapped:" destination="BYZ-38-t0r" id="nKP-Tm-d5F"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer numberOfTapsRequired="2" id="Wg1-dC-Pby" userLabel="Canvas Triple Tapped Recognizer">
+                <tapGestureRecognizer numberOfTapsRequired="2" id="Wg1-dC-Pby" userLabel="Canvas double tap recognizer">
                     <connections>
-                        <action selector="canvasTripleTapped:" destination="BYZ-38-t0r" id="c1G-MI-nYv"/>
+                        <action selector="returnUserToFirstBrickIfDoubleTapped:" destination="BYZ-38-t0r" id="XKn-tY-wGu"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
