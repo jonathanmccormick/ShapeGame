@@ -64,10 +64,12 @@ class ViewController: UIViewController {
             return
         }
         
+        view.bringSubviewToFront(brick)
+        
         brick.center.x = scrollView.contentOffset.x + sender.location(in: view).x
         brick.center.y = scrollView.contentOffset.y + sender.location(in: view).y
         
-        let isOverDeleteZone = deleteView.frame.intersects(brick.frame)
+        let isOverDeleteZone = brick.frame.intersects(deleteView.convert(brick.frame, from: brick))
         
         UIView.animate(withDuration: 0.25, animations: {
             if (isOverDeleteZone) {
@@ -79,7 +81,8 @@ class ViewController: UIViewController {
         
         if (sender.state == .ended) {
             if (isOverDeleteZone) {
-                sender.view?.removeFromSuperview()
+                bricks.remove(at: bricks.firstIndex(of: brick)!)
+                brick.removeFromSuperview()
             }
         }
         
