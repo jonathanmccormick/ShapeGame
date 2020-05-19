@@ -56,7 +56,8 @@ class ViewController: UIViewController {
             return
         }
         
-        brick.center = sender.location(in: view)
+        brick.center.x = scrollView.contentOffset.x + sender.location(in: view).x
+        brick.center.y = scrollView.contentOffset.y + sender.location(in: view).y
         
         let isOverDeleteZone = deleteView.frame.intersects(brick.frame)
         
