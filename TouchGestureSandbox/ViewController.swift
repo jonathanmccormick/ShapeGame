@@ -77,59 +77,7 @@ class ViewController: UIViewController {
         }
         
         brick.hasBeenMoved = true
-        
-        let snapConstant: CGFloat = 10
-        
-        func calculateXOffset(_ offset: CGFloat) {
-            if abs(offset) < snapConstant {
-                let offset = offset
-                setBrickCenter(xOffset: offset)
-            }
-        }
-        
-        func calculateYOffset(_ offset: CGFloat) {
-            if abs(offset) < snapConstant {
-                let offset = offset
-                setBrickCenter(yOffset: offset)
-            }
-        }
-         
-        func setBrickCenter(xOffset: CGFloat = 0, yOffset: CGFloat = 0) {
-                brick.center.x -= xOffset
-                brick.center.y -= yOffset
-        }
-        
-        for _brick in bricks {
-            // X
-                // Snap on approach from outside
-                    // approach from the left
-                    calculateXOffset(brick.frame.maxX - _brick.frame.minX)
-            
-                    // approach from the right
-                    calculateXOffset(brick.frame.minX - _brick.frame.maxX)
-            
-                // Snap on approach from inside
-                    // exit from left
-                    calculateXOffset(brick.frame.maxX - _brick.frame.maxX)
-            
-                    // exit from right
-                    calculateXOffset(brick.frame.minX - _brick.frame.minX)
-            
-            // Y
-                // Snap on approach from outside
-                    // approach from top
-                    calculateYOffset(brick.frame.maxY - _brick.frame.minY)
-                    
-                    // approach from bottom
-                    calculateYOffset(brick.frame.minY - _brick.frame.maxY)
-            
-                // Snap on approach from inside
-                    // exit top
-                    calculateYOffset(brick.frame.maxY - _brick.frame.maxY)
-                    
-                    // exit bottom
-                    calculateYOffset(brick.frame.minY - _brick.frame.minY)
-        }
+        brick.snapIfCloseToAny(of: bricks)
     }
     
     @objc func brickTapped(sender: UITapGestureRecognizer){
