@@ -14,8 +14,8 @@
 		F98E64FA246E0594008179A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F98E64F9246E0594008179A8 /* Assets.xcassets */; };
 		F98E64FD246E0594008179A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F98E64FB246E0594008179A8 /* LaunchScreen.storyboard */; };
 		F98E6505246F3B89008179A8 /* Brick.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98E6504246F3B89008179A8 /* Brick.swift */; };
-		F9AAEE6E24743F2D008B34B6 /* GridTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AAEE6A24743F2C008B34B6 /* GridTile.swift */; };
-		F9AAEE7024743F2D008B34B6 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AAEE6D24743F2D008B34B6 /* GridView.swift */; };
+		F9AAEE732474598B008B34B6 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AAEE712474598A008B34B6 /* GridView.swift */; };
+		F9AAEE742474598B008B34B6 /* GridTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AAEE722474598A008B34B6 /* GridTile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,8 +28,8 @@
 		F98E64FC246E0594008179A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F98E64FE246E0594008179A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F98E6504246F3B89008179A8 /* Brick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brick.swift; sourceTree = "<group>"; };
-		F9AAEE6A24743F2C008B34B6 /* GridTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridTile.swift; path = "../../../Infinite-Grid-Swift/Infinite-Grid-Swift/GridTile.swift"; sourceTree = "<group>"; };
-		F9AAEE6D24743F2D008B34B6 /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridView.swift; path = "../../../Infinite-Grid-Swift/Infinite-Grid-Swift/GridView.swift"; sourceTree = "<group>"; };
+		F9AAEE712474598A008B34B6 /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
+		F9AAEE722474598A008B34B6 /* GridTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridTile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,8 +78,8 @@
 		F9AAEE6924743F14008B34B6 /* Canvas */ = {
 			isa = PBXGroup;
 			children = (
-				F9AAEE6A24743F2C008B34B6 /* GridTile.swift */,
-				F9AAEE6D24743F2D008B34B6 /* GridView.swift */,
+				F9AAEE722474598A008B34B6 /* GridTile.swift */,
+				F9AAEE712474598A008B34B6 /* GridView.swift */,
 			);
 			path = Canvas;
 			sourceTree = "<group>";
@@ -156,10 +156,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F98E64F5246E0593008179A8 /* ViewController.swift in Sources */,
+				F9AAEE742474598B008B34B6 /* GridTile.swift in Sources */,
 				F98E6505246F3B89008179A8 /* Brick.swift in Sources */,
-				F9AAEE6E24743F2D008B34B6 /* GridTile.swift in Sources */,
 				F98E64F1246E0593008179A8 /* AppDelegate.swift in Sources */,
-				F9AAEE7024743F2D008B34B6 /* GridView.swift in Sources */,
+				F9AAEE732474598B008B34B6 /* GridView.swift in Sources */,
 				F98E64F3246E0593008179A8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
