@@ -51,18 +51,20 @@ class CanvasViewController: UIViewController {
     private func addBrick(color: UIColor) {
         let brick = Brick(color: color)
         positionRandomlyInMiddle(brick)
-
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(self.panGesture))
-        brick.addGestureRecognizer(panGesture)
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.brickTapped))
-        brick.addGestureRecognizer(tapGesture)
+        brick.addPanGestureRecognizer {
+            
+        }
+        
+        brick.addTapGestureRecognizer {
+            self.scrollView.bringSubviewToFront()
+        }
         
         scrollView.addSubview(brick)
         bricks.append(brick)
     }
     
-    @objc func panGesture(sender: UIPanGestureRecognizer){
+    private func panGesture(sender: UIPanGestureRecognizer){
         guard let brick = sender.view as? Brick else {
             return
         }
@@ -93,10 +95,6 @@ class CanvasViewController: UIViewController {
         
         brick.hasBeenMoved = true
         brick.snapIfCloseToAny(of: bricks)
-    }
-    
-    @objc func brickTapped(sender: UITapGestureRecognizer){
-        scrollView.bringSubviewToFront(sender.view!)
     }
     
     private func delete(_ brick: Brick) {

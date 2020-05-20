@@ -17,6 +17,7 @@
 		F9AAEE732474598B008B34B6 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AAEE712474598A008B34B6 /* GridView.swift */; };
 		F9AAEE742474598B008B34B6 /* GridTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AAEE722474598A008B34B6 /* GridTile.swift */; };
 		F9AAEE7624746BEE008B34B6 /* CanvasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AAEE7524746BEE008B34B6 /* CanvasViewModel.swift */; };
+		F9D692EB2474C184002435C5 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D692EA2474C184002435C5 /* UIView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		F9AAEE712474598A008B34B6 /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		F9AAEE722474598A008B34B6 /* GridTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridTile.swift; sourceTree = "<group>"; };
 		F9AAEE7524746BEE008B34B6 /* CanvasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasViewModel.swift; sourceTree = "<group>"; };
+		F9D692EA2474C184002435C5 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 		F98E64EF246E0593008179A8 /* TouchGestureSandbox */ = {
 			isa = PBXGroup;
 			children = (
+				F9D692E92474C159002435C5 /* Extensions */,
 				F9AAEE6924743F14008B34B6 /* Canvas */,
 				F98E64F0246E0593008179A8 /* AppDelegate.swift */,
 				F98E64F2246E0593008179A8 /* SceneDelegate.swift */,
@@ -85,6 +88,14 @@
 				F9AAEE712474598A008B34B6 /* GridView.swift */,
 			);
 			path = Canvas;
+			sourceTree = "<group>";
+		};
+		F9D692E92474C159002435C5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F9D692EA2474C184002435C5 /* UIView+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,6 +171,7 @@
 			files = (
 				F98E64F5246E0593008179A8 /* CanvasViewController.swift in Sources */,
 				F9AAEE742474598B008B34B6 /* GridTile.swift in Sources */,
+				F9D692EB2474C184002435C5 /* UIView+Extension.swift in Sources */,
 				F98E6505246F3B89008179A8 /* Brick.swift in Sources */,
 				F98E64F1246E0593008179A8 /* AppDelegate.swift in Sources */,
 				F9AAEE732474598B008B34B6 /* GridView.swift in Sources */,
