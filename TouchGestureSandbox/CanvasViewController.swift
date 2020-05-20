@@ -67,8 +67,6 @@ class CanvasViewController: UIViewController {
             return
         }
         
-        view.bringSubviewToFront(brick)
-        
         brick.center.x = scrollView.contentOffset.x + sender.location(in: view).x
         brick.center.y = scrollView.contentOffset.y + sender.location(in: view).y
         
