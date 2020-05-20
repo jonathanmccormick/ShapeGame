@@ -128,7 +128,7 @@ extension Brick {
         "green" : UIColor(red:0.27, green:0.58, blue:0.27, alpha:1.00),
         "blue" : UIColor(red:0.06, green:0.31, blue:0.71, alpha:1.00),
         "pink" : UIColor(red:0.85, green:0.36, blue:0.54, alpha:1.00),
-        "yellow" : UIColor(red:1.00, green:0.92, blue:0.27, alpha:1.00),
+//        "yellow" : UIColor(red:1.00, green:0.92, blue:0.27, alpha:1.00),
         "Pelorous" : UIColor(red:0.21, green:0.64, blue:0.71, alpha:1.00),
         "Byzantium" : UIColor(red:0.45, green:0.11, blue:0.44, alpha:1.00),
     ]
