@@ -79,6 +79,7 @@ class CanvasViewController: UIViewController {
             delete(brick)
         }
         
+        // Copy logic
         let isOverAddZone = brick.frame.intersects(addBrickButton.convert(brick.frame, from: brick))
         
         if (isOverAddZone) {
@@ -91,7 +92,6 @@ class CanvasViewController: UIViewController {
             addBrick(color: brick.color)
         }
         
-        brick.hasBeenMoved = true
         brick.snapIfCloseToAny(of: bricks)
     }
     

@@ -12,7 +12,6 @@ import UIKit
 class Brick: UIView {
 
     // MARK: properties
-    public var hasBeenMoved = false
     var color: UIColor
     let snapConstant: CGFloat = 10
 
