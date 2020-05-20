@@ -30,6 +30,16 @@ class Brick: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    public func fade(_ fade: Bool) {
+        UIView.animate(withDuration: 0.25, animations: {
+            if (fade) {
+                self.backgroundColor = self.backgroundColor?.withAlphaComponent(0.5)
+            } else {
+                self.backgroundColor = self.backgroundColor?.withAlphaComponent(1)
+            }
+        })
+    }
+    
     // MARK: Snapping logic
     public func snapIfCloseToAny(of bricks: [Brick]) {
         
@@ -85,12 +95,12 @@ class Brick: UIView {
         }
     }
     
-    func setBrickCenter(xOffset: CGFloat = 0, yOffset: CGFloat = 0) {
+    private func setBrickCenter(xOffset: CGFloat = 0, yOffset: CGFloat = 0) {
         center.x -= xOffset
         center.y -= yOffset
     }
     
-    func calculateXOffset(_ offset: CGFloat) -> CGFloat? {
+    private func calculateXOffset(_ offset: CGFloat) -> CGFloat? {
         if abs(offset) < snapConstant {
             let offset = offset
             return offset
@@ -99,7 +109,7 @@ class Brick: UIView {
         return nil
     }
     
-    func calculateYOffset(_ offset: CGFloat) -> CGFloat? {
+    private func calculateYOffset(_ offset: CGFloat) -> CGFloat? {
         if abs(offset) < snapConstant {
             let offset = offset
             return offset

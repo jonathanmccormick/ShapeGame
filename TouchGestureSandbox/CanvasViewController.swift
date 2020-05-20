@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CanvasViewController: UIViewController {
     
     var bricks: [Brick] = []
     
@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func addBrickTapped(_ sender: Any) {
-        addBrick(color: Brick.colors.randomElement()!.value)
+        addBrick()
     }
     
     @IBAction func addBrickLongPressed(_ sender: Any) {
@@ -44,11 +44,13 @@ class ViewController: UIViewController {
         scrollView.setContentOffset(CGPoint(x: xOffset, y: yOffset), animated: true)
     }
     
+    private func addBrick() {
+        addBrick(color: Brick.colors.randomElement()!.value)
+    }
+    
     private func addBrick(color: UIColor) {
         let brick = Brick(color: color)
-        
-        brick.center.x = scrollView.contentOffset.x + (scrollView.frame.width * 0.5)
-        brick.center.y = scrollView.contentOffset.y + (scrollView.frame.height * 0.5)
+        positionRandomlyInMiddle(brick)
 
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(self.panGesture))
         brick.addGestureRecognizer(panGesture)
@@ -70,21 +72,11 @@ class ViewController: UIViewController {
         brick.center.x = scrollView.contentOffset.x + sender.location(in: view).x
         brick.center.y = scrollView.contentOffset.y + sender.location(in: view).y
         
+        // Delete logic
         let isOverDeleteZone = brick.frame.intersects(deleteView.convert(brick.frame, from: brick))
-        
-        UIView.animate(withDuration: 0.25, animations: {
-            if (isOverDeleteZone) {
-                sender.view?.backgroundColor = sender.view?.backgroundColor?.withAlphaComponent(0.5)
-            } else {
-                sender.view?.backgroundColor = sender.view?.backgroundColor?.withAlphaComponent(1)
-            }
-        })
-        
-        if (sender.state == .ended) {
-            if (isOverDeleteZone) {
-                bricks.remove(at: bricks.firstIndex(of: brick)!)
-                brick.removeFromSuperview()
-            }
+        brick.fade(isOverDeleteZone)
+        if (isOverDeleteZone && sender.state == .ended) {
+            delete(brick)
         }
         
         let isOverAddZone = brick.frame.intersects(addBrickButton.convert(brick.frame, from: brick))
@@ -106,9 +98,22 @@ class ViewController: UIViewController {
     @objc func brickTapped(sender: UITapGestureRecognizer){
         scrollView.bringSubviewToFront(sender.view!)
     }
+    
+    private func delete(_ brick: Brick) {
+        brick.removeFromSuperview()
+        bricks.remove(at: bricks.firstIndex(of: brick)!)
+    }
+    
+    private func positionRandomlyInMiddle(_ brick: Brick) {
+        let randomBound: CGFloat = 25
+        let xOffset = CGFloat.random(in: -randomBound...randomBound)
+        let yOffset = CGFloat.random(in: -randomBound...randomBound)
+        brick.center.x = scrollView.contentOffset.x + (scrollView.frame.width * 0.5) + xOffset
+        brick.center.y = scrollView.contentOffset.y + (scrollView.frame.height * 0.5) + yOffset
+    }
 }
 
-extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+extension CanvasViewController : UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         1
     }
