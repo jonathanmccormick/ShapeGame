@@ -10,7 +10,7 @@ import UIKit
 
 class CanvasViewController: UIViewController {
     
-    var bricks: [Brick] = []
+    var shapes: [Shape] = []
     
     // MARK: - Outlets
     @IBOutlet weak var canvas: UIView!
@@ -23,7 +23,7 @@ class CanvasViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func addBrickTapped(_ sender: Any) {
-        addBrick()
+        addShape()
     }
     
     @IBAction func addBrickLongPressed(_ sender: Any) {
@@ -33,10 +33,10 @@ class CanvasViewController: UIViewController {
     }
     
     @IBAction func DeleteTapped(_ sender: Any) {
-        bricks.popLast()?.removeFromSuperview()
+        shapes.popLast()?.removeFromSuperview()
     }
     @IBAction func returnUserToFirstBrickIfDoubleTapped(_ sender: Any) {
-        guard let firstBrick = bricks.first else { return }
+        guard let firstBrick = shapes.first else { return }
         
         let xOffset = firstBrick.center.x - (scrollView.frame.width * 0.5)
         let yOffset = firstBrick.center.y - (scrollView.frame.height * 0.5)
@@ -44,41 +44,42 @@ class CanvasViewController: UIViewController {
         scrollView.setContentOffset(CGPoint(x: xOffset, y: yOffset), animated: true)
     }
     
-    private func addBrick() {
-        addBrick(color: Brick.colors.randomElement()!.value)
+    private func addShape() {
+        addShape(color: Colors.random())
     }
     
-    private func addBrick(color: UIColor) {
-        let brick = Brick(color: color)
-        positionRandomlyInMiddle(brick)
+    private func addShape(color: UIColor) {
+        let shape = shapes.count % 2 == 0 ? Brick() : Rectangle()
+        shape.color = color
+        positionRandomlyInMiddle(shape)
 
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(self.panGesture))
-        brick.addGestureRecognizer(panGesture)
+        shape.addGestureRecognizer(panGesture)
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.brickTapped))
-        brick.addGestureRecognizer(tapGesture)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.shapeTapped))
+        shape.addGestureRecognizer(tapGesture)
         
-        scrollView.addSubview(brick)
-        bricks.append(brick)
+        scrollView.addSubview(shape)
+        shapes.append(shape)
     }
     
     @objc func panGesture(sender: UIPanGestureRecognizer){
-        guard let brick = sender.view as? Brick else {
+        guard let shape = sender.view as? Shape else {
             return
         }
         
-        brick.center.x = scrollView.contentOffset.x + sender.location(in: view).x
-        brick.center.y = scrollView.contentOffset.y + sender.location(in: view).y
+        shape.center.x = scrollView.contentOffset.x + sender.location(in: view).x
+        shape.center.y = scrollView.contentOffset.y + sender.location(in: view).y
         
         // Delete logic
-        let isOverDeleteZone = brick.frame.intersects(deleteView.convert(brick.frame, from: brick))
-        brick.fade(isOverDeleteZone)
+        let isOverDeleteZone = shape.frame.intersects(deleteView.convert(shape.frame, from: shape))
+        shape.fade(isOverDeleteZone)
         if (isOverDeleteZone && sender.state == .ended) {
-            delete(brick)
+            delete(shape)
         }
         
         // Copy logic
-        let isOverAddZone = brick.frame.intersects(addBrickButton.convert(brick.frame, from: brick))
+        let isOverAddZone = shape.frame.intersects(addBrickButton.convert(shape.frame, from: shape))
         
         if (isOverAddZone) {
             addBrickButton.titleLabel?.text = "Copy Brick"
@@ -87,27 +88,27 @@ class CanvasViewController: UIViewController {
         }
         
         if (isOverAddZone && sender.state == .ended) {
-            addBrick(color: brick.color)
+            addShape(color: shape.color)
         }
         
-        brick.snapIfCloseToAny(of: bricks)
+        shape.snapIfCloseToAny(of: shapes)
     }
     
-    @objc func brickTapped(sender: UITapGestureRecognizer){
+    @objc func shapeTapped(sender: UITapGestureRecognizer){
         scrollView.bringSubviewToFront(sender.view!)
     }
     
-    private func delete(_ brick: Brick) {
-        brick.removeFromSuperview()
-        bricks.remove(at: bricks.firstIndex(of: brick)!)
+    private func delete(_ shape: Shape) {
+        shape.removeFromSuperview()
+        shapes.remove(at: shapes.firstIndex(of: shape)!)
     }
     
-    private func positionRandomlyInMiddle(_ brick: Brick) {
+    private func positionRandomlyInMiddle(_ shape: Shape) {
         let randomBound: CGFloat = 25
         let xOffset = CGFloat.random(in: -randomBound...randomBound)
         let yOffset = CGFloat.random(in: -randomBound...randomBound)
-        brick.center.x = scrollView.contentOffset.x + (scrollView.frame.width * 0.5) + xOffset
-        brick.center.y = scrollView.contentOffset.y + (scrollView.frame.height * 0.5) + yOffset
+        shape.center.x = scrollView.contentOffset.x + (scrollView.frame.width * 0.5) + xOffset
+        shape.center.y = scrollView.contentOffset.y + (scrollView.frame.height * 0.5) + yOffset
     }
 }
 
@@ -117,16 +118,16 @@ extension CanvasViewController : UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        Brick.colors.count
+        Colors.colors.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "\(Brick.colorSortedKeys[row])"
+        return "\(Colors.colorSortedKeys[row])"
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
-        addBrick(color: Brick.colors[Brick.colorSortedKeys[row]]!)
+        addShape(color: Colors.colors[Colors.colorSortedKeys[row]]!)
         pickerView.isHidden = true
         canvas.isUserInteractionEnabled = true
         pickerView.selectedRow(inComponent: 0)

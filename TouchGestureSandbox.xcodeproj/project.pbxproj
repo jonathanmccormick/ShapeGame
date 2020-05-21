@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F92829AE2475DF0700A688EC /* Rectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92829AD2475DF0700A688EC /* Rectangle.swift */; };
+		F92829B02475DF3100A688EC /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92829AF2475DF3100A688EC /* Shape.swift */; };
+		F92829B22475DF9800A688EC /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92829B12475DF9800A688EC /* Colors.swift */; };
 		F98E64F1246E0593008179A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98E64F0246E0593008179A8 /* AppDelegate.swift */; };
 		F98E64F3246E0593008179A8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98E64F2246E0593008179A8 /* SceneDelegate.swift */; };
 		F98E64F5246E0593008179A8 /* CanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98E64F4246E0593008179A8 /* CanvasViewController.swift */; };
@@ -20,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F92829AD2475DF0700A688EC /* Rectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rectangle.swift; sourceTree = "<group>"; };
+		F92829AF2475DF3100A688EC /* Shape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
+		F92829B12475DF9800A688EC /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		F98E64ED246E0592008179A8 /* TouchGestureSandbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouchGestureSandbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F98E64F0246E0593008179A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F98E64F2246E0593008179A8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +80,9 @@
 				F98E64FE246E0594008179A8 /* Info.plist */,
 				F98E6504246F3B89008179A8 /* Brick.swift */,
 				F9AAEE7524746BEE008B34B6 /* CanvasViewModel.swift */,
+				F92829AD2475DF0700A688EC /* Rectangle.swift */,
+				F92829AF2475DF3100A688EC /* Shape.swift */,
+				F92829B12475DF9800A688EC /* Colors.swift */,
 			);
 			path = TouchGestureSandbox;
 			sourceTree = "<group>";
@@ -159,12 +168,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				F98E64F5246E0593008179A8 /* CanvasViewController.swift in Sources */,
+				F92829B22475DF9800A688EC /* Colors.swift in Sources */,
 				F9AAEE742474598B008B34B6 /* GridTile.swift in Sources */,
 				F98E6505246F3B89008179A8 /* Brick.swift in Sources */,
 				F98E64F1246E0593008179A8 /* AppDelegate.swift in Sources */,
+				F92829B02475DF3100A688EC /* Shape.swift in Sources */,
 				F9AAEE732474598B008B34B6 /* GridView.swift in Sources */,
 				F98E64F3246E0593008179A8 /* SceneDelegate.swift in Sources */,
 				F9AAEE7624746BEE008B34B6 /* CanvasViewModel.swift in Sources */,
+				F92829AE2475DF0700A688EC /* Rectangle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

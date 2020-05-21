@@ -1,17 +1,17 @@
 //
-//  Brick.swift
+//  Rectangle.swift
 //  TouchGestureSandbox
 //
-//  Created by Jonathan McCormick on 5/15/20.
+//  Created by Jonathan McCormick on 5/20/20.
 //  Copyright © 2020 Jonathan McCormick. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class Brick: Shape {
-    init() {
-        super.init(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+class Rectangle: Shape {
+   init() {
+        super.init(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
     }
     
     required init?(coder: NSCoder) {
